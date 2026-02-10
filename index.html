@@ -136,7 +136,59 @@
     
       <article class="post on-list">
         <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia0/">Narnia0</a>
+          <a href="https://0x4ngk4n.github.io/posts/narnia1/">narnia1</a>
+        </h2>
+
+        <div class="post-meta"><time class="post-date">2026-02-10</time><span class="post-author">0x4ngk4n</span></div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="https://0x4ngk4n.github.io/tags/narnia/">narnia</a>&nbsp;
+            
+            #<a href="https://0x4ngk4n.github.io/tags/overthewire/">overthewire</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <p>lets login to narnia1 and see what&rsquo;s the source code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>ret)();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;EGG&#34;</span>)<span style="color:#f92672">==</span>NULL){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Give me something to execute at the env-variable EGG</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Trying to execute EGG!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    ret <span style="color:#f92672">=</span> <span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;EGG&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ret</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I&rsquo;ve always had difficulty reading C syntax, especially this line: <code>int (ret*)();</code><br>
+The way I read it is <code>ret is a pointer to a function returning an int</code>.</p>
+<p>Next, ret is being assigned this value from an environment variable <code>EGG</code> and then executed <code>ret()</code>.</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/narnia1/">[Read more]</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="https://0x4ngk4n.github.io/posts/narnia0/">narnia0</a>
         </h2>
 
         <div class="post-meta"><time class="post-date">2026-02-10</time><span class="post-author">0x4ngk4n</span></div>
