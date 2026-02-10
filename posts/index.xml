@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on exploit dev</title>
-    <link>https://0x4ngk4n.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on exploit dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Feb 2026 14:05:52 +0000</lastBuildDate>
-    <atom:link href="https://0x4ngk4n.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Feb 2026 10:08:57 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Narnia0</title>
+      <link>http://localhost:1313/posts/narnia0/</link>
+      <pubDate>Tue, 10 Feb 2026 10:08:57 +0000</pubDate>
+      <guid>http://localhost:1313/posts/narnia0/</guid>
+      <description>&lt;p&gt;Back in 2016, I started with bandit and it left it at that&amp;hellip;&lt;br&gt;&#xA;Now, a decade after I pick up &lt;strong&gt;narnia&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Login is standard as in any OTW wargame with an SSH.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh narnia0@narnia.labs.overthewire.org -p2226&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at &lt;code&gt;/narnia&lt;/code&gt; location.&#xA;Passphrases to the next levels are at &lt;code&gt;/etc/narnia_pass/narnia/&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Now, that we are in, lets inspect the C code for &lt;code&gt;narnia0&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>here it goes...</title>
-      <link>https://0x4ngk4n.github.io/posts/first/</link>
+      <link>http://localhost:1313/posts/first/</link>
       <pubDate>Mon, 09 Feb 2026 14:05:52 +0000</pubDate>
-      <guid>https://0x4ngk4n.github.io/posts/first/</guid>
+      <guid>http://localhost:1313/posts/first/</guid>
       <description>&lt;p&gt;&lt;del&gt;A little&lt;/del&gt; About me&amp;hellip;&lt;br&gt;&#xA;&lt;br&gt;&#xA;I am Angkan and as of today, I have been in IT for about 14 years now.&lt;br&gt;&#xA;&lt;br&gt;&#xA;Back when I started, I was doing tech support for firewalls which, while I didn&amp;rsquo;t enjoy much but got me hooked into how computers communicate. Fast forward few job hoops where I acquired skills such as scripting and nix fundamentals, I landed a role where I gained exposure to first hand cyber-attacks employed by attackers-in-the-wild. This was 10 years back from today. Attacks were mostly around lack of input validation, source to sink based, deterministic in nature and like many before me and after, I was also like &lt;strong&gt;wow ^~^&lt;/strong&gt; would be cool to be a hacker-at-work.&lt;br&gt;&#xA;&lt;br&gt;&#xA;Consulting was mostly nice as I got to work on web, mobile apps as well as thick clients. Most importantly, what I learnt was how to document the findings to &lt;strong&gt;pro&lt;/strong&gt;fessionally relay to the clients. More often than not, this is a really important part of overall project delivery. Then from a general web app consultant, I landed roles as a red teamer and maldev where I got to work with some of the very best in the industry while actually executing entire cyber kill chains. &lt;strong&gt;THIS WAS FUN!&lt;/strong&gt;&lt;br&gt;&#xA;&lt;br&gt;&#xA;However, while maldev &lt;del&gt;was&lt;/del&gt;is cool and I really love&lt;del&gt;d&lt;/del&gt; red teaming, what always had got me excited was initial access. Specially zero or 1 click exploits. With some experience over the years and being a generalist in various domains in cyber-sec, I thought it was high time I specialise in one skill set and be really excellent at that.&lt;br&gt;&#xA;&lt;br&gt;&#xA;Especially with advent and improvements around AI, where we are at the cusp of interfacing with computers just with human language (&lt;em&gt;yet another higher level abstraction over high level computer languages&lt;/em&gt;), not a better time to get closer to the machine and hardware to keep that professional edge.&lt;br&gt;&#xA;&lt;br&gt;&#xA;This blog will detail my journey towards an N-day researcher. It won&amp;rsquo;t just start with N-days but more like, revising and learning new concepts around binary exploitation, getting hands dirty on wargames, CTFs and finally to N-day CVE analysis and crafting PoCs but most importanly documenting my thought process.&lt;br&gt;&#xA;&lt;br&gt;&#xA;Lets go!&lt;/p&gt;</description>
     </item>
   </channel>

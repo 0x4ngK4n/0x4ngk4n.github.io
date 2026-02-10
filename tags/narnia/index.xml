@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Narnia on exploit dev</title>
+    <link>http://localhost:1313/tags/narnia/</link>
+    <description>Recent content in Narnia on exploit dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2026 10:08:57 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/narnia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Narnia0</title>
+      <link>http://localhost:1313/posts/narnia0/</link>
+      <pubDate>Tue, 10 Feb 2026 10:08:57 +0000</pubDate>
+      <guid>http://localhost:1313/posts/narnia0/</guid>
+      <description>&lt;p&gt;Back in 2016, I started with bandit and it left it at that&amp;hellip;&lt;br&gt;&#xA;Now, a decade after I pick up &lt;strong&gt;narnia&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Login is standard as in any OTW wargame with an SSH.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh narnia0@narnia.labs.overthewire.org -p2226&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at &lt;code&gt;/narnia&lt;/code&gt; location.&#xA;Passphrases to the next levels are at &lt;code&gt;/etc/narnia_pass/narnia/&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Now, that we are in, lets inspect the C code for &lt;code&gt;narnia0&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
