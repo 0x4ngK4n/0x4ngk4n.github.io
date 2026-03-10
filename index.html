@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.3">
+	<meta name="generator" content="Hugo 0.155.2">
   
     <title>exploit dev</title>
   
@@ -17,12 +17,6 @@
 
 
 
-
-  
-  <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/main.min.7d96875ab64e4666f6b663bd6b9529f9a867dd3fadc2b1edee24b8cef46107c0.css">
-
-  
-  <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/terminal.min.f07caa97966b6418dc9fb7cf61c1655ee5e4c5ac85df19cd307f36af17ed0817.css">
 
   
   <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
@@ -43,6 +37,9 @@
   <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
 
   
+  <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
   <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
 
   
@@ -53,6 +50,9 @@
 
   
   <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+
+  
+  <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
 
   
   <link rel="stylesheet" href="https://0x4ngk4n.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
@@ -106,7 +106,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="https://0x4ngk4n.github.io/">
+      <a href="/">
   <div class="logo">
     Terminal
   </div>
@@ -136,19 +136,11 @@
     
       <article class="post on-list">
         <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia1/">narnia1</a>
+          <a href="https://0x4ngk4n.github.io/posts/narnia2/">Narnia2</a>
         </h2>
 
-        <div class="post-meta"><time class="post-date">2026-02-10</time><span class="post-author">0x4ngk4n</span></div>
+        <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
 
-        
-          <span class="post-tags">
-            
-            #<a href="https://0x4ngk4n.github.io/tags/narnia/">narnia</a>&nbsp;
-            
-            #<a href="https://0x4ngk4n.github.io/tags/overthewire/">overthewire</a>&nbsp;
-            
-          </span>
         
 
         
@@ -156,11 +148,80 @@
 
         <div class="post-content">
           
-            <p>lets login to narnia1 and see what&rsquo;s the source code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>ret)();
+            <p>Now its <code>narnia2</code>. It&rsquo;s been a while but yeah now continuing the series&hellip; Looking at the source code of /narnia/narnia3, it seems to be the case of a clear-cut stack-based buffer overflow. In this case, there is the vulnerable <code>strcpy</code> function which takes in user-controlled unsanitised buffer as the first argument.</p>
+<p>This is the corresponding code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">128</span>];
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (argc<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Usage: %s argument</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, argv[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">strcpy</span>(buf, argv[<span style="color:#ae81ff">1</span>]); <span style="color:#75715e">// the buffer overflow
+</span></span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, buf);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Loading the file in <code>gdb</code> I have the following output when I try to overflow and control the EIP:</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/narnia2/">[]</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="https://0x4ngk4n.github.io/posts/narnia0/">narnia0</a>
+        </h2>
+
+        <div class="post-meta"><time class="post-date">2026-02-10</time></div>
+
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <p>Back in 2016, I started with bandit and it left it at that…</p>
+<p>Now, a decade after I pick up <strong>narnia</strong>.</p>
+<p>Login is standard as in any OTW wargame with an SSH.</p>
+<pre tabindex="0"><code>ssh narnia0@narnia.labs.overthewire.org -p2226
+</code></pre><p>In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at <code>/narnia</code> location.
+Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
+<p>Now, that we are in, lets inspect the C code for <code>narnia0</code>.</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button inline" href="/posts/narnia0/">[]</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
+          <a href="https://0x4ngk4n.github.io/posts/narnia1/">narnia1</a>
+        </h2>
+
+        <div class="post-meta"><time class="post-date">2026-02-10</time></div>
+
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <p>lets login to narnia1 and see what’s the source code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">int main(){</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>ret)();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;EGG&#34;</span>)<span style="color:#f92672">==</span>NULL){
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Give me something to execute at the env-variable EGG</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
@@ -173,54 +234,15 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>I&rsquo;ve always had difficulty reading C syntax, especially this line: <code>int (ret*)();</code><br>
-The way I read it is <code>ret is a pointer to a function returning an int</code>.</p>
+</span></span></code></pre></div><p>I’ve always had difficulty reading C syntax, especially this line: <code>int (ret*)();</code></p>
+<p>The way I read it is <code>ret is a pointer to a function returning an int</code>.</p>
 <p>Next, ret is being assigned this value from an environment variable <code>EGG</code> and then executed <code>ret()</code>.</p>
           
         </div>
 
         
           <div>
-            <a class="read-more button inline" href="/posts/narnia1/">[Read more]</a>
-          </div>
-        
-      </article>
-    
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia0/">narnia0</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-02-10</time><span class="post-author">0x4ngk4n</span></div>
-
-        
-          <span class="post-tags">
-            
-            #<a href="https://0x4ngk4n.github.io/tags/narnia/">narnia</a>&nbsp;
-            
-            #<a href="https://0x4ngk4n.github.io/tags/overthewire/">overthewire</a>&nbsp;
-            
-          </span>
-        
-
-        
-
-
-        <div class="post-content">
-          
-            <p>Back in 2016, I started with bandit and it left it at that&hellip;<br>
-Now, a decade after I pick up <strong>narnia</strong>.</p>
-<p>Login is standard as in any OTW wargame with an SSH.</p>
-<pre tabindex="0"><code>ssh narnia0@narnia.labs.overthewire.org -p2226
-</code></pre><p>In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at <code>/narnia</code> location.
-Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
-<p>Now, that we are in, lets inspect the C code for <code>narnia0</code>.</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button inline" href="/posts/narnia0/">[Read more]</a>
+            <a class="read-more button inline" href="/posts/narnia1/">[]</a>
           </div>
         
       </article>
@@ -230,7 +252,7 @@ Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
           <a href="https://0x4ngk4n.github.io/posts/first/">here it goes&hellip;</a>
         </h2>
 
-        <div class="post-meta"><time class="post-date">2026-02-09</time><span class="post-author">0x4ngk4n</span></div>
+        <div class="post-meta"><time class="post-date">2026-02-09</time></div>
 
         
 
@@ -239,13 +261,15 @@ Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
 
         <div class="post-content">
           
-            <p>the journey of an N-day exploit researcher, where eventually N -&gt; 0</p>
+            <p><del>A little</del> About me…</p>
+<p>I am Angkan and as of today, I have been in IT for about 14 years now.</p>
+<p>Back when I started, I was doing tech support for firewalls which, while I didn’t enjoy much but got me hooked into how computers communicate. Fast forward few job hoops where I acquired skills such as scripting and nix fundamentals, I landed a role where I gained exposure to first hand cyber-attacks employed by attackers-in-the-wild. This was 10 years back from today. Attacks were mostly around lack of input validation, source to sink based, deterministic in nature and like many before me and after, I was also like <strong>wow ^~^</strong> would be cool to be a hacker-at-work.</p>
           
         </div>
 
         
           <div>
-            <a class="read-more button inline" href="/posts/first/">[Read more]</a>
+            <a class="read-more button inline" href="/posts/first/">[]</a>
           </div>
         
       </article>
