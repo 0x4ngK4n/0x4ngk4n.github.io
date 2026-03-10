@@ -126,6 +126,73 @@
     
       <article class="post on-list">
         <h2 class="post-title">
+          <a href="https://0x4ngk4n.github.io/posts/narnia3/">Narnia3</a>
+        </h2>
+        <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
+
+        
+
+        
+
+
+        <div class="post-content">
+          
+            <p>Onto narnia3.. Its listing is as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/stat.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fcntl.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span>  ifd,  ofd;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> ofile[<span style="color:#ae81ff">16</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/dev/null&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> ifile[<span style="color:#ae81ff">32</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">32</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(argc <span style="color:#f92672">!=</span> <span style="color:#ae81ff">2</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;usage, %s file, will send contents of file 2 /dev/null</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,argv[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* open files */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">strcpy</span>(ifile, argv[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>((ofd <span style="color:#f92672">=</span> <span style="color:#a6e22e">open</span>(ofile,O_RDWR)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> ){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;error opening %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ofile);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>((ifd <span style="color:#f92672">=</span> <span style="color:#a6e22e">open</span>(ifile, O_RDONLY)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> ){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;error opening %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ifile);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">exit</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* copy from file1 to file2 */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">read</span>(ifd, buf, <span style="color:#66d9ef">sizeof</span>(buf)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">write</span>(ofd,buf, <span style="color:#66d9ef">sizeof</span>(buf)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;copied contents of %s to a safer place... (%s)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ifile,ofile);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* close &#39;em */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">close</span>(ifd);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">close</span>(ofd);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The program takes in one argument, supposedly a file and copies it to <code>/dev/null</code>. I wish it didnt copy it to <code>/dev/null</code>. I observe that it is <code>ifile</code> which is copied into from argv[1] via a <code>strcpy</code>. Additionally, note the <code>ofile</code> declared just above <code>ifile</code> is set to <code>/dev/null</code>.</p>
+          
+        </div>
+
+        
+           <div>
+            <a class="read-more button inline" href="/posts/narnia3/">[]</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h2 class="post-title">
           <a href="https://0x4ngk4n.github.io/posts/narnia2/">Narnia2</a>
         </h2>
         <div class="post-meta"><time class="post-date">2026-03-10</time><span class="post-author">0x4ngk4n</span></div>
